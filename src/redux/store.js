@@ -1,5 +1,10 @@
 import {createStore, applyMiddleware} from 'redux';
 import {rootReducer} from './rootReducer';
-import thunk from 'redux-thunk';
+import createSagaMiddleware from 'redux-saga';
+import {watchAsync} from '../redux/weatherInput/saga';
 
-export const store = createStore(rootReducer, applyMiddleware(thunk));
+const sagaMiddleware = createSagaMiddleware();
+
+export const store = createStore(rootReducer, applyMiddleware(sagaMiddleware));
+
+sagaMiddleware.run(watchAsync);

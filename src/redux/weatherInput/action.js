@@ -7,9 +7,9 @@ export const inputWeather = city => ({
   payload: city
 })
 
-export const weatherAsyncStart = () => ({
-  type: weatherInputType.WEATHER_ASYNC_START
-})
+// export const weatherAsyncStart = () => ({
+//   type: weatherInputType.WEATHER_FETCH_REQUEST
+// })
 
 export const weatherAsyncSuccess = weatherDetail => ({
   type: weatherInputType.WEATHER_ASYNC_SUCCESS,
@@ -21,14 +21,20 @@ export const weatherAsyncFail = error => ({
   payload: error
 })
 
-export const weatherAsyncHandler = city => {
-  return dispatch => {
-    dispatch(weatherAsyncStart());
+export const weatherAsyncHandler = city => ({
+  type: weatherInputType.WEATHER_FETCH_REQUEST,
+  payload: city
+})
 
-    axios.get(`${utils.URL}${city}&appid=${utils.APPID}`)
-         .then(data => {
-           dispatch(weatherAsyncSuccess(data))
-         })
-         .catch(error => dispatch(weatherAsyncFail(error.message)))
-  }
-}
+// export const weatherAsyncHandler = city => {
+//   return dispatch => {
+//     dispatch(weatherAsyncStart());
+
+//     axios.get(`${utils.URL}${city}&appid=${utils.APPID}`)
+//          .then(data => {
+//            dispatch(weatherAsyncSuccess(data))
+//          })
+//          .catch(error => dispatch(weatherAsyncFail(error.message)))
+//   }
+// }
+
