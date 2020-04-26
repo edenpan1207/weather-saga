@@ -8,7 +8,7 @@ class WeatherInput extends Component {
     return (
       <div>
         <input type="text" value={city} onChange={(e) => changeCity(e.target.value)} />
-        <button onClick={() => submitCity(city)}>查詢</button>
+        <button className="click-btn" onClick={() => submitCity(city)}>查詢</button>
       </div>
     )
   }
