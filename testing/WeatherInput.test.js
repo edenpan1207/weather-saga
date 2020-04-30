@@ -1,5 +1,5 @@
 import React from 'react';
-import {mockStore, initialState} from '../setupTest';
+import {mockStore, initialState} from '../setupTests';
 import { mount } from 'enzyme';
 import WeatherInput from '../src/components/WeatherInput';
 

@@ -1,5 +1,5 @@
 import React from 'react';
-import '../setupTest';
+import '../setupTests';
 import { shallow } from 'enzyme';
 import App from '../src/App';
 import WeatherInput from '../src/components/WeatherInput';

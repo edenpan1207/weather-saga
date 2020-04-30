@@ -1,6 +1,6 @@
 import * as actions from '../src/redux/weatherInput/action';
 import reducer from '../src/redux/weatherInput/reducer';
-import {initialState} from '../setupTest';
+import {initialState} from '../setupTests';
 
 it('check reducer', () => {
   const action = actions.inputWeather('taipei');

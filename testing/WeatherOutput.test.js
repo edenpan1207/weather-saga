@@ -1,5 +1,5 @@
 import React from 'react';
-import {mockStore, initialState} from '../setupTest';
+import {mockStore, initialState} from '../setupTests';
 import configureMockStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
 import { mount } from 'enzyme';
