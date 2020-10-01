@@ -3,17 +3,18 @@ import {connect} from 'react-redux';
 
 class WeatherOutput extends Component {
   render() {
-    const {results, errorMessage} = this.props;
+    const {results, errorMessage, isLoading} = this.props;
     return (
       <div className="result-list">
         <ul className="list">
           {
-            results.map(({data}) => {
+            isLoading ? '載入中...' :
+            results.map(result => {
               return (
-                <li key={data.id}>
-                  {data.name}
+                <li key={result.id}>
+                  {result.name}
                   <br />
-                  {data.main.temp}
+                  {result.temp}
                 </li>
               )
             })
@@ -28,6 +29,7 @@ class WeatherOutput extends Component {
 }
 
 const mapStateToProps = state => ({
+  isLoading: state.city.isLoading,
   results: state.city.results,
   errorMessage: state.city.errorMessage
 })

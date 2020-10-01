@@ -3,12 +3,22 @@ import {connect} from 'react-redux';
 import {inputWeather, weatherAsyncHandler} from '../redux/weatherInput/action';
 
 class WeatherInput extends Component {
+  changeHandle(e) {
+    const {changeCity} = this.props;
+    changeCity(e.target.value);
+  }
+
+  submitHandle() {
+    const {submitCity} = this.props;
+    submitCity();
+  }
+
   render() {
-    const {changeCity, city, submitCity} = this.props;
+    const {city} = this.props;
     return (
       <div>
-        <input type="text" value={city} onChange={(e) => changeCity(e.target.value)} />
-        <button className="click-btn" onClick={() => submitCity(city)}>查詢</button>
+        <input type="text" value={city} onChange={(e) => this.changeHandle(e)} />
+        <button className="click-btn" onClick={() => this.submitHandle(city)}>查詢</button>
       </div>
     )
   }
@@ -20,8 +30,7 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch => ({
   changeCity: city => dispatch(inputWeather(city)),
-  submitCity: city => dispatch(weatherAsyncHandler(city))
-
+  submitCity: () => dispatch(weatherAsyncHandler())
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(WeatherInput);

@@ -1,7 +1,7 @@
 import {createStore, applyMiddleware} from 'redux';
 import {rootReducer} from './rootReducer';
 import createSagaMiddleware from 'redux-saga';
-import {watchAsync} from '../redux/weatherInput/saga';
+import {watchAsync} from './sagas/index';
 
 const sagaMiddleware = createSagaMiddleware();
 

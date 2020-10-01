@@ -1,0 +1,1 @@
+export const cityState = state => state.city.city;

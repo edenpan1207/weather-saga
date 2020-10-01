@@ -1,15 +1,13 @@
 import {weatherInputType} from './type';
-import axios from 'axios';
-import utils from '../../utils';
 
 export const inputWeather = city => ({
   type: weatherInputType.INPUT_CITY,
   payload: city
 })
 
-// export const weatherAsyncStart = () => ({
-//   type: weatherInputType.WEATHER_FETCH_REQUEST
-// })
+export const weatherAsyncStart = () => ({
+  type: weatherInputType.WEATHER_FETCH_START
+})
 
 export const weatherAsyncSuccess = weatherDetail => ({
   type: weatherInputType.WEATHER_ASYNC_SUCCESS,
@@ -21,9 +19,8 @@ export const weatherAsyncFail = error => ({
   payload: error
 })
 
-export const weatherAsyncHandler = city => ({
-  type: weatherInputType.WEATHER_FETCH_REQUEST,
-  payload: city
+export const weatherAsyncHandler = () => ({
+  type: weatherInputType.WEATHER_FETCH_REQUEST
 })
 
 // export const weatherAsyncHandler = city => {
